@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant/pages/products_page.dart';
+import 'package:restaurant/pages/add_product_page.dart';
+import 'package:restaurant/pages/menu_page.dart';
+import 'package:restaurant/pages/tables_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,9 +17,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: ProductsPage.id,
+      initialRoute: TablesPage.id,
       routes: {
-        ProductsPage.id: (_) => ProductsPage(),
+        TablesPage.id: (_) => TablesPage(),
+        MenuPage.id: (_) => MenuPage(),
+        AddProductPage.id: (_) => AddProductPage(),
       },
     );
   }
