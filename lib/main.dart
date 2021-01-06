@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant/pages/add_product_page.dart';
-import 'package:restaurant/pages/menu_page.dart';
-import 'package:restaurant/pages/tables_page.dart';
+
+import 'ui/pages/add_menu_page/add_product_page.dart';
+import 'ui/pages/menu_page/menu_page.dart';
+import 'ui/pages/tables_page/tables_page.dart';
 
 void main() {
   runApp(MyApp());

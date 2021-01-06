@@ -9,17 +9,18 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
 
   @override
-  Size get preferredSize => const Size.fromHeight(70);
+  Size get preferredSize => const Size.fromHeight(100);
 
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
     return AppBar(
+      toolbarHeight: 500.ssp,
       backgroundColor: Colors.yellow[700],
       centerTitle: true,
       title: Text(
         topTitle,
-        style: TextStyle(fontSize: 75.ssp, color: Colors.black),
+        style: TextStyle(fontSize: 60.sp, color: Colors.black),
       ),
     );
   }

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant/widgets/topBar.dart';
+import 'package:restaurant/ui/widgets/topBar.dart';
 
 class MenuPage extends StatelessWidget {
-  static String id = 'menu_page';
+  static String id = '/menu_page';
   const MenuPage({Key key}) : super(key: key);
 
   @override
