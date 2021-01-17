@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-Table tableFromJson(String str) => Table.fromJson(json.decode(str));
+TableModel tableFromJson(String str) => TableModel.fromJson(json.decode(str));
 
-String tableToJson(Table data) => json.encode(data.toJson());
+String tableToJson(TableModel data) => json.encode(data.toJson());
 
-class Table {
-  Table({
+class TableModel {
+  TableModel({
     this.id,
     this.status,
   });
@@ -13,11 +13,11 @@ class Table {
   int id;
   bool status;
 
-  Table.initial()
+  TableModel.initial()
       : id = 0,
         status = false;
 
-  factory Table.fromJson(Map<String, dynamic> json) => Table(
+  factory TableModel.fromJson(Map<String, dynamic> json) => TableModel(
         id: json["id"],
         status: json["status"],
       );
