@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
+import 'package:restaurant/ui/providers/login_provider.dart';
 
 class LoginPage extends StatelessWidget {
   static String id = '/login_page';
@@ -7,6 +9,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final login = Provider.of<LogginState>(context);
     ScreenUtil.init(context);
     return SafeArea(
       child: Scaffold(
@@ -35,6 +38,12 @@ class LoginPage extends StatelessWidget {
                 obscureText: true,
                 keyboardType: TextInputType.text,
               ),
+            ),
+            RaisedButton(
+              child: Text('Sign In'),
+              onPressed: () {
+                login.login();
+              },
             ),
           ],
         ),

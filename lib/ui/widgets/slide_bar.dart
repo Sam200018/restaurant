@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:restaurant/ui/pages/add_menu_page/add_product_page.dart';
 import 'package:restaurant/ui/pages/menu_page/menu_page.dart';
 import 'package:restaurant/ui/pages/tables_page/tables_page.dart';
+import 'package:restaurant/ui/providers/login_provider.dart';
 
 class SlideBar extends StatelessWidget {
   const SlideBar({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final logout = Provider.of<LogginState>(context);
     ScreenUtil.init(context);
     return Container(
       width: 500.ssp,
@@ -70,7 +73,20 @@ class SlideBar extends StatelessWidget {
               },
             ),
             Container(
-              height: 30.ssp,
+              height: 850.ssp,
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.logout,
+                size: 50.ssp,
+              ),
+              title: Text(
+                'Logout',
+                style: TextStyle(fontSize: 50.ssp),
+              ),
+              onTap: () {
+                logout.logout();
+              },
             ),
           ],
         ),
