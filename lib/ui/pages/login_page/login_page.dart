@@ -11,9 +11,8 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final login = Provider.of<LogginState>(context);
     ScreenUtil.init(context);
-    return SafeArea(
-      child: Scaffold(
-          body: Form(
+    return Scaffold(
+      body: Form(
         child: Column(
           children: [
             Padding(
@@ -23,8 +22,14 @@ class LoginPage extends StatelessWidget {
                 left: 100.ssp,
               ),
               child: TextFormField(
-                decoration: InputDecoration(hintText: 'Email'),
+                decoration: InputDecoration(
+                  hintText: 'Email',
+                  errorText: 'Campo Requerido',
+                ),
                 keyboardType: TextInputType.emailAddress,
+                onChanged: (String value) {
+                  print(value);
+                },
               ),
             ),
             Padding(
@@ -34,9 +39,13 @@ class LoginPage extends StatelessWidget {
                 left: 100.ssp,
               ),
               child: TextFormField(
-                decoration: InputDecoration(hintText: 'Contraseña'),
+                decoration: InputDecoration(
+                    hintText: 'Contraseña', errorText: 'Campo Requerido'),
                 obscureText: true,
                 keyboardType: TextInputType.text,
+                onChanged: (String value) {
+                  print(value);
+                },
               ),
             ),
             RaisedButton(
@@ -47,7 +56,7 @@ class LoginPage extends StatelessWidget {
             ),
           ],
         ),
-      )),
+      ),
     );
   }
 }
