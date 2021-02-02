@@ -9,7 +9,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
 
   @override
-  Size get preferredSize => const Size.fromHeight(100);
+  Size get preferredSize => const Size.fromHeight(70);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: true,
       title: Text(
         topTitle,
-        style: TextStyle(fontSize: 60.sp, color: Colors.black),
+        style: TextStyle(fontSize: 60.ssp, color: Colors.black),
       ),
     );
   }

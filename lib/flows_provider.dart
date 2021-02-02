@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant/ui/pages/login_page/login_page.dart';
+import 'package:restaurant/ui/pages/signup_pages.dart';
+
 import 'package:restaurant/ui/providers/login_provider.dart';
+import 'package:restaurant/ui/providers/signup_provider.dart';
+import 'package:restaurant/ui/providers/tables_viewmodel.dart';
 
 import 'ui/pages/add_menu_page/add_product_page.dart';
 import 'ui/pages/menu_page/menu_page.dart';
 import 'ui/pages/tables_page/tables_page.dart';
-import 'ui/providers/tables_viewmodel.dart';
 
 class Providers extends StatelessWidget {
   const Providers({Key key}) : super(key: key);
@@ -16,6 +19,7 @@ class Providers extends StatelessWidget {
     return MultiProvider(providers: [
       ChangeNotifierProvider(create: (_) => TablesViewModel()),
       ChangeNotifierProvider(create: (_) => LogginState()),
+      ChangeNotifierProvider(create: (_) => SignUp()),
     ], child: _app(context));
   }
 
@@ -38,6 +42,7 @@ class Providers extends StatelessWidget {
         },
         MenuPage.id: (_) => MenuPage(),
         AddProductPage.id: (_) => AddProductPage(),
+        SignUpPage.id: (_) => SignUpPage(),
       },
     );
   }
