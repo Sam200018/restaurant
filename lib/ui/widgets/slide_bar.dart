@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant/ui/pages/add_menu_page/add_product_page.dart';
 import 'package:restaurant/ui/pages/menu_page/menu_page.dart';
-import 'package:restaurant/ui/pages/tables_page/tables_page.dart';
 import 'package:restaurant/ui/providers/login_provider.dart';
 
 class SlideBar extends StatelessWidget {
@@ -26,22 +25,6 @@ class SlideBar extends StatelessWidget {
                 'Restaurant',
                 style: TextStyle(fontSize: 50.ssp),
               ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.home,
-                size: 50.ssp,
-              ),
-              title: Text(
-                'Inicio',
-                style: TextStyle(fontSize: 50.ssp),
-              ),
-              onTap: () {
-                Navigator.pushNamed(context, TablesPage.id);
-              },
-            ),
-            Container(
-              height: 30.ssp,
             ),
             ListTile(
               leading: Icon(

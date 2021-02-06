@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:restaurant/ui/pages/login_page/login_page.dart';
-import 'package:restaurant/ui/pages/signup_pages.dart';
+import 'package:restaurant/ui/pages/signup_page.dart';
 
 import 'package:restaurant/ui/providers/login_provider.dart';
 import 'package:restaurant/ui/providers/signup_provider.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:restaurant/ui/pages/signup_pages.dart';
+import 'package:restaurant/ui/pages/signup_page.dart';
 import 'package:restaurant/ui/providers/login_provider.dart';
 
 class LoginPage extends StatelessWidget {

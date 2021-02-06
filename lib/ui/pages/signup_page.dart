@@ -4,11 +4,13 @@ import 'package:provider/provider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:restaurant/ui/providers/signup_provider.dart';
+import 'package:restaurant/core/services/newUser.dart';
+
 import 'package:restaurant/ui/widgets/topBar.dart';
 
 class SignUpPage extends StatelessWidget {
   static String id = '/sigUp';
-  const SignUpPage({Key key}) : super(key: key);
+  final newUserService = new NewUserService();
 
   @override
   Widget build(BuildContext context) {
@@ -21,60 +23,6 @@ class SignUpPage extends StatelessWidget {
       body: Form(
         child: ListView(
           children: [
-            Padding(
-              padding: EdgeInsets.only(
-                top: 100.ssp,
-                right: 100.ssp,
-                left: 100.ssp,
-              ),
-              child: TextFormField(
-                style: TextStyle(fontSize: 50.ssp),
-                decoration: InputDecoration(
-                  hintText: 'Nombre',
-                  errorText: signUp.name().error,
-                ),
-                keyboardType: TextInputType.name,
-                onChanged: (String value) {
-                  signUp.changeName(value);
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 100.ssp,
-                right: 100.ssp,
-                left: 100.ssp,
-              ),
-              child: TextFormField(
-                style: TextStyle(fontSize: 50.ssp),
-                decoration: InputDecoration(
-                  hintText: 'Apellido',
-                  errorText: signUp.lastNameFather().error,
-                ),
-                keyboardType: TextInputType.emailAddress,
-                onChanged: (String value) {
-                  signUp.changeLastNameFather(value);
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 100.ssp,
-                right: 100.ssp,
-                left: 100.ssp,
-              ),
-              child: TextFormField(
-                style: TextStyle(fontSize: 50.ssp),
-                decoration: InputDecoration(
-                  hintText: 'Nombre del restaurante',
-                  errorText: signUp.restaurantsName().error,
-                ),
-                keyboardType: TextInputType.emailAddress,
-                onChanged: (String value) {
-                  signUp.changeRestaurantsName(value);
-                },
-              ),
-            ),
             Padding(
               padding: EdgeInsets.only(
                 top: 100.ssp,
@@ -124,7 +72,7 @@ class SignUpPage extends StatelessWidget {
                   hintText: 'Confirma la contraseña',
                   errorText: signUp.password2().error,
                 ),
-                keyboardType: TextInputType.emailAddress,
+                keyboardType: TextInputType.text,
                 obscureText: true,
                 onChanged: (String value) {
                   signUp.matchPassword(value);
@@ -141,7 +89,17 @@ class SignUpPage extends StatelessWidget {
                   'Crear cuenta nueva',
                   style: TextStyle(fontSize: 50.ssp),
                 ),
-                onPressed: (signUp.formIsValid) ? signUp.summitUser : null,
+                onPressed: () {
+                  if (!signUp.formIsValid) {
+                    return null;
+                  } else {
+                    print('si debe jalar');
+                    newUserService.nuevoUsuario(
+                        signUp.email().value, signUp.password2().value);
+                    // Navigator.pushReplacementNamed(context, '/');
+                    return;
+                  }
+                },
               ),
             ),
           ],

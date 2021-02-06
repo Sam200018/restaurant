@@ -21,10 +21,7 @@ class SignUp extends ChangeNotifier {
   ValidationItem password1() => _password1;
   ValidationItem password2() => _password2;
   bool get formIsValid {
-    if (_name.value != null &&
-        _lastNameFather.value != null &&
-        _restaurantsName.value != null &&
-        _email.value != null &&
+    if (_email.value != null &&
         _password1.value != null &&
         _password2.value != null) {
       return true;
@@ -97,6 +94,11 @@ class SignUp extends ChangeNotifier {
   }
 
   void summitUser() {
-    print('Se logró');
+    _name = ValidationItem(null, null);
+    _lastNameFather = ValidationItem(null, null);
+    _restaurantsName = ValidationItem(null, null);
+    _email = ValidationItem(null, null);
+    _password1 = ValidationItem(null, null);
+    _password2 = ValidationItem(null, null);
   }
 }
