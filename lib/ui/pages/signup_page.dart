@@ -96,7 +96,7 @@ class SignUpPage extends StatelessWidget {
                     print('si debe jalar');
                     newUserService.nuevoUsuario(
                         signUp.email().value, signUp.password2().value);
-                    // Navigator.pushReplacementNamed(context, '/');
+                    Navigator.pushReplacementNamed(context, '/');
                     return;
                   }
                 },

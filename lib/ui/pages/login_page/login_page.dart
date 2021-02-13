@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:restaurant/core/services/newUser.dart';
 import 'package:restaurant/ui/pages/signup_page.dart';
 import 'package:restaurant/ui/providers/login_provider.dart';
+import 'package:restaurant/ui/providers/signup_provider.dart';
 
 class LoginPage extends StatelessWidget {
   static String id = '/login_page';
-  const LoginPage({Key key}) : super(key: key);
+  final loginClass = new NewUserService();
 
   @override
   Widget build(BuildContext context) {
     final login = Provider.of<LogginState>(context);
+    final signUp = Provider.of<SignUp>(context);
     ScreenUtil.init(context);
     return Scaffold(
       body: Form(
@@ -26,11 +29,11 @@ class LoginPage extends StatelessWidget {
                 style: TextStyle(fontSize: 50.ssp),
                 decoration: InputDecoration(
                   hintText: 'Email',
-                  errorText: 'Campo Requerido',
+                  errorText: signUp.email().error,
                 ),
                 keyboardType: TextInputType.emailAddress,
                 onChanged: (String value) {
-                  print(value);
+                  signUp.changeEmail(value);
                 },
               ),
             ),
@@ -43,11 +46,13 @@ class LoginPage extends StatelessWidget {
               child: TextFormField(
                 style: TextStyle(fontSize: 50.ssp),
                 decoration: InputDecoration(
-                    hintText: 'Contraseña', errorText: 'Campo Requerido'),
+                  hintText: 'Contraseña',
+                  errorText: signUp.password1().error,
+                ),
                 obscureText: true,
                 keyboardType: TextInputType.text,
                 onChanged: (String value) {
-                  print(value);
+                  signUp.changePassword1(value);
                 },
               ),
             ),
@@ -61,8 +66,15 @@ class LoginPage extends StatelessWidget {
                   'Sign In',
                   style: TextStyle(fontSize: 50.ssp),
                 ),
-                onPressed: () {
-                  login.login();
+                onPressed: () async {
+                  Map log = await loginClass.login(
+                      signUp.email().value, signUp.password1().value);
+
+                  if (log['ok']) {
+                    login.login();
+                  } else {
+                    print('alerta de error y de intentos quiero creer');
+                  }
                 },
               ),
             ),
