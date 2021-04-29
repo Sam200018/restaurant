@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant/src/pages/login_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -6,17 +7,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Restoody',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Aqui ira el login'),
-        ),
-        body: Center(
-          child: Container(
-            child: Text('Listo todo ahora si'),
-          ),
-        ),
-      ),
+      initialRoute: 'login',
+      routes: {
+        'login': (BuildContext context) => LoginPage(),
+      },
     );
   }
 }
