@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant/flows_provider.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Providers();
+    return MaterialApp(
+      title: 'Restoody',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Aqui ira el login'),
+        ),
+        body: Center(
+          child: Container(
+            child: Text('Listo todo ahora si'),
+          ),
+        ),
+      ),
+    );
   }
 }
